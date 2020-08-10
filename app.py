@@ -1,12 +1,6 @@
-from flask import Flask
+from webapp import create_app
 
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return 'hello, world'
-
+app = create_app()
 
 if __name__ == '__main__':
-    # Threaded option to enable multiple instances for multiple user access support
     app.run(threaded=True, port=5000)
