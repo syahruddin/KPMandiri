@@ -16,13 +16,11 @@ from itsdangerous import URLSafeTimedSerializer
 auth_bp = Blueprint('auth_bp', __name__, template_folder='templates',static_folder='static')
 
 #login
-@auth_bp.route('/logindef') #ini cuman buat nguji, nanti ga pakai ini halaman loginnya
+@auth_bp.route('/logindef' ,methods=['POST','GET']) #ini cuman buat nguji, nanti ga pakai ini halaman loginnya
 def logindef():
-    if not checkArgs(['username','password']):
-        return "error",422
-    else:
-        username = request.args['username']
-        password = request.args['password']
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
 
         attempt = fungsilogin(username,password)
 
@@ -36,6 +34,8 @@ def logindef():
                 return "akun belum terverifikasi"
         else:
             return "username atau password salah"
+    else:
+        return render_template('login.html')
 
 @auth_bp.route('/logout')
 def logout():
@@ -43,20 +43,19 @@ def logout():
     return redirect(url_for('home_bp.index'))
 
 #registrasi
-@auth_bp.route('/api/reg')
+@auth_bp.route('/api/reg' , methods=['POST','GET'])
 def register():
-    if not checkArgs(['username','email','password']):
-        return "error",422
-    else:
+    if request.method == 'POST':
+
         #check apakah username terpakai
-        username = request.args['username']
+        username = request.form['username']
         sameUsername = str(getUserByUsername(username))
         userused = False
         if sameUsername != '[]':
             userused = True
 
         #check apakah email terpakai
-        email = request.args['email']
+        email = request.form['email']
         sameEmail = str(getUserbyEmail(email))
         emailused = False
         if sameEmail != '[]':
@@ -70,11 +69,13 @@ def register():
             flash('Email sudah terpakai')
             return 'emailused'
         else:
-            password = request.args['password']
+            password = request.form['password']
             password = sembunyi.hash(password)
             newUser(email,username,password)
             sendConfirm(email)
             return 'ok',200
+    else:
+        return render_template('register.html')
 
 
 #setting
@@ -112,7 +113,7 @@ def confirm_email(token):
     except:
         return 'invalid or expired'
 
-    userconfirmed = getUserByEmail(email)[0][4]
+    userconfirmed = getUserbyEmail(email)[0][4]
 
     if userconfirmed:
         flash('Account already confirmed. Please login.', 'info')

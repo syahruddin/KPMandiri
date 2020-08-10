@@ -9,5 +9,5 @@ home_bp = Blueprint('home_bp', __name__, template_folder='templates',static_fold
 @home_bp.route('/')
 def index():
     if 'username' in session:
-        return 'hello, ' + str(session['username'])
-    return 'belum login'
+        return render_template('indexlogged.html',user = str(session['username']))
+    return render_template('index.html')

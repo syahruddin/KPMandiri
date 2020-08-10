@@ -11,7 +11,7 @@ mail = Mail(app)
 def sendConfirm(email):
     confirm_serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
-    confirm_url = url_for('confirm_email',token=confirm_serializer.dumps(email, salt='email-confirmation-salt'),_external=True)
+    confirm_url = url_for('auth_bp.confirm_email',token=confirm_serializer.dumps(email, salt='email-confirmation-salt'),_external=True)
 
     html = render_template('email_confirmation.html',confirm_url=confirm_url)
 
