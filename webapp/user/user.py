@@ -12,36 +12,18 @@ def profil():
         if request.method == 'POST':
             username = session['username']
             name = request.form['name']
-            print(name)
-            print(type(name))
             birthdate = request.form['birthdate']
-            print(birthdate)
-            print(type(birthdate))
             if request.form['status'] == 'True':
                 status = True
             else:
                 status = False
-            print(status)
-            print(type(status))
             phone = request.form['phone']
-            print(phone)
-            print(type(phone))
             phonehome = request.form['phonehome']
-            print(phonehome)
-            print(type(phonehome))
             email = request.form['email']
-            print(email)
-            print(type(email))
             location = request.form['location']
-            print(location)
-            print(type(location))
             address = request.form['address']
-            print(address)
-            print(type(address))
             postnumber = request.form['postnumber']
-            print(postnumber)
-            print(type(postnumber))
-
+            
             setProfil(name,birthdate,status,phone,phonehome,email,location,address,postnumber,username)
         else:
             data = getProfil(session['username'])
