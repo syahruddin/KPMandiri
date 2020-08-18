@@ -39,3 +39,55 @@ def changeEmail(username,email):
 def setVerify(email):
     cur.execute("UPDATE pengguna SET verstatus = true WHERE email = %s;",[email])
     conn.commit()
+
+def getProfil(username):
+    cur.execute("select pengguna.userid, userprofil.name, userprofil.birthdate,userprofil.status,userprofil.phone,userprofil.phonehome,userprofil.email,userprofil.location,userprofil.address,userprofil.postnumber from userprofil inner join pengguna on pengguna.userid = userprofil.userid where pengguna.username = %s;",[username])
+    data = cur.fetchall()
+    return data
+
+def setProfilName(name,username ):
+    cur.execute("update userprofil set name = %s from pengguna where pengguna.userid = userprofil.userid and pengguna.username = %s;",[name,username])
+    conn.commit()
+
+def setProfilBirth(birthdate, username ):
+    cur.execute("update userprofil set  birthdate = %s  from pengguna where pengguna.userid = userprofil.userid and pengguna.username = %s;",[birthdate,username])
+    conn.commit()
+
+def setProfilStatus(status, username ):
+    cur.execute("update userprofil set status = %s  from pengguna where pengguna.userid = userprofil.userid and pengguna.username = %s;",[status,username])
+    conn.commit()
+
+def setProfilPhone(phone, username ):
+    cur.execute("update userprofil set phone = %s from pengguna where pengguna.userid = userprofil.userid and pengguna.username = %s;",[phone,username])
+    conn.commit()
+
+def setProfilPhonehome( phonehome, username ):
+    cur.execute("update userprofil set phonehome = %s from pengguna where pengguna.userid = userprofil.userid and pengguna.username = %s;",[phonehome,username])
+    conn.commit()
+
+def setProfilEmail(email,  username ):
+    cur.execute("update userprofil set  email = %s from pengguna where pengguna.userid = userprofil.userid and pengguna.username = %s;",[email,username])
+    conn.commit()
+
+def setProfilLocation(location, username ):
+    cur.execute("update userprofil set location = %s from pengguna where pengguna.userid = userprofil.userid and pengguna.username = %s;",[location,username])
+    conn.commit()
+
+def setProfilAddress(address, username ):
+    cur.execute("update userprofil set address = %s from pengguna where pengguna.userid = userprofil.userid and pengguna.username = %s;",[address,username])
+    conn.commit()
+
+def setProfilPostnumber(postnumber, username ):
+    cur.execute("update userprofil set  postnumber = %s  from pengguna where pengguna.userid = userprofil.userid and pengguna.username = %s;",[postnumber,username])
+    conn.commit()
+
+def setProfil(name,birthdate,status,phone,phonehome,email,location,address,postnumber,username):
+    setProfilName(name,username )
+    setProfilBirth(birthdate, username )
+    setProfilStatus(status, username )
+    setProfilPhone(phone, username )
+    setProfilPhonehome( phonehome, username )
+    setProfilEmail(email,  username )
+    setProfilLocation(location, username )
+    setProfilAddress(address, username )
+    setProfilPostnumber(postnumber, username )

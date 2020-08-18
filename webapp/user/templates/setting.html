@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <a href="{{url_for('home_bp.index') }}" method="GET">Home</a>
+  <form class="form-inline d-flex justify-content-around" style="" action="{{ request.path }}" method="POST">
+    <label for="name">Nama:</label><br>
+  <input type="text" id="name" name="name" value="{{name}}"><br>
+  <label for="birthdate">Tanggal Lahir:</label><br>
+  <input type="date" id="birthdate" name="birthdate" value="{{birthdate}}"><br>
+  <label for="fname">Status Pernikahan:</label><br>
+  <select id="status" name="status">
+    <option value="True">Sudah Kawin</option>
+    <option value="False">Belum Kawin</option>
+  </select><br>
+  <label for="fname">No Handphone:</label><br>
+  <input type="tel" id="phone" name="phone" value="{{phone}}"><br>
+  <label for="fname">No Telepon Rumah:</label><br>
+  <input type="tel" id="phonehome" name="phonehome" value="{{phonehome}}"><br>
+  <label for="fname">Email:</label><br>
+  <input type="email" id="email" name="email" value="{{email}}"><br>
+  <label for="fname">Lokasi:</label><br>
+  <select id="location" name="location">
+    <option value="Bandung">Bandung</option>
+    <option value="Jakarta">Jakarta</option>
+    <option value="Bogor">Bogor</option>
+  </select><br>
+  <label for="fname">Alamat:</label><br>
+  <input type="text" id="address" name="address" value="{{address}}"><br>
+  <label for="fname">Kode Pos:</label><br>
+  <input type="number" id="postnumber" name="postnumber" value="{{postnumber}}"><br>
+  <input type="submit" value="Update">
+</form>
+
+</body>
+
+</html>

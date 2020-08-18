@@ -15,7 +15,7 @@ def create_app():
         #from .project import project
         from .storage import storage
         from .query import query
-        #from .user import user
+        from .user import user
 
         # Register Blueprints
         app.register_blueprint(auth.auth_bp)
@@ -25,7 +25,7 @@ def create_app():
         #app.register_blueprint(project.project_bp)
         app.register_blueprint(storage.storage_bp)
         app.register_blueprint(query.query_bp)
-        #app.register_blueprint(user.user_bp)
+        app.register_blueprint(user.user_bp)
 
 
 

@@ -16,8 +16,8 @@ from itsdangerous import URLSafeTimedSerializer
 auth_bp = Blueprint('auth_bp', __name__, template_folder='templates',static_folder='static')
 
 #login
-@auth_bp.route('/logindef' ,methods=['POST','GET']) #ini cuman buat nguji, nanti ga pakai ini halaman loginnya
-def logindef():
+@auth_bp.route('/login' ,methods=['POST','GET'])
+def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
