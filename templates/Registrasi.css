@@ -1,0 +1,69 @@
+header{
+    text-align: center;
+    margin-top: 10px;
+}
+body{
+    margin:0;
+    background-image: url('bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+form{
+    background-color: white;
+    border: #ccc 1px solid;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10px;
+    text-align: center;
+}
+h1{
+    font-size: 36px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    padding-left: 80px;
+    text-align: left;
+    border-bottom: 2px solid #ccc;
+}
+#input-field-container{
+    padding-top: 24px;
+    padding-bottom: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.input-box{
+    font-size: 18px;
+    padding-bottom: 12px;
+    margin-bottom: 36px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+.checkbox{
+    text-align: center;
+    font-size: 16px;
+    margin-top: -30px;
+    margin-bottom: 16px;
+}
+#submit{
+    background-color: lightsalmon;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 18px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: 'PT Serif', serif;
+}
+#submit:hover{
+    box-shadow: 2px 2px 3px lightsalmon;
+    color: white;
+    background-color: darksalmon;
+    text-decoration: underline ;
+    cursor: pointer;
+}

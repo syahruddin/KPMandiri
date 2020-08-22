@@ -1,0 +1,40 @@
+body{
+    margin:0;
+    background-image: url('bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+img{
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 25px;
+    height: auto;
+    width: 250px;
+}
+main{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    font-size: 64px;
+    margin: auto;
+    width: 50%;
+    margin-top: 7%;
+    font-family: 'Roboto', sans-serif;
+}
+button{
+    width: 250px;
+    font-size: 24px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    margin: 12px;
+    box-shadow: 2px 2px lightslategray;
+}
+button:hover{
+    box-shadow: 2px 2px 3px lightslategray;
+    color: white;
+    background-color: darkgrey;
+    text-decoration: underline ;
+}
